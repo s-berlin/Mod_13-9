@@ -10,10 +10,12 @@ class Graph {
 public:
     Graph();
 
-    // добавление вершины
-    void addName(string vName);
     // добавление ребра
     void addEdge(int v1, int v2, int weight);
+
+    // добавление вершины
+    void addName(string vName);
+ 
     // удаление вершины
     void delName(string vName);
     // удаление ребра
