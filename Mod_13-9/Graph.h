@@ -37,4 +37,3 @@ public:
     int vertexCount; // количество добавленных вершин
 };
 #endif
-

@@ -138,7 +138,7 @@ void Graph::findFriends(int stage)
         }
     }
     // вывод матрицы расстояний
-    std::cout << endl << "Кратчайшие пути между вершинами (метод Флойда)" << endl;
+    std::cout << endl << "Кратчайшие пути между вершинами  (метод Флойда)" << endl;
     cout << "        ";
     for (int i = 0; i < vertexCount; i++) cout << names[i] << "     ";
     cout << endl;
