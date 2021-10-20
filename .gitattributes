@@ -2,6 +2,10 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
+.cpp encoding=cp1251
+.c encoding=cp1251
+.hpp encoding=cp1251
+.h encoding=cp1251
 
 ###############################################################################
 # Set default behavior for command prompt diff.
