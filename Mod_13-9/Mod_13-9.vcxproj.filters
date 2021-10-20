@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Graph.h">
+    <ClInclude Include="graph.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
