@@ -1,4 +1,4 @@
-#define VERYBIGINT 1000000 // очень большое число
+#define VERYBIGINT 1000000 // РѕС‡РµРЅСЊ Р±РѕР»СЊС€РѕРµ С‡РёСЃР»Рѕ
 #include "graph.h"
 #include <iostream>
 
@@ -10,25 +10,25 @@ Graph::Graph() {
             matrix[i][j] = 0;
     vertexCount = 0;
 }
-// добавление вершины
+// РґРѕР±Р°РІР»РµРЅРёРµ РІРµСЂС€РёРЅС‹
 void Graph::addName(string vName)
 {
     names[vertexCount] = vName;
     vertexCount++;
 }
-// добавление ребра
+// РґРѕР±Р°РІР»РµРЅРёРµ СЂРµР±СЂР°
 void Graph::addEdge(int v1, int v2, int weight)
 {
     matrix[v1][v2] = weight;
     matrix[v2][v1] = weight;
 }
 
-// удаление участника 
+// СѓРґР°Р»РµРЅРёРµ СѓС‡Р°СЃС‚РЅРёРєР° 
 void Graph::delName(string vName)
 {
     int vnumber;
     bool vFind = false;
-    cout << "Удалить участника  " << vName << endl;
+    cout << "РЈРґР°Р»РёС‚СЊ СѓС‡Р°СЃС‚РЅРёРєР°  " << vName << endl;
     for (int i = 0; i < vertexCount; i++)
         if (names[i] == vName) {
             vnumber = i; 
@@ -47,21 +47,21 @@ void Graph::delName(string vName)
 
         vertexCount--;
     }
-    else  cout << "Участник не найден " << endl;
+    else  cout << "РЈС‡Р°СЃС‚РЅРёРє РЅРµ РЅР°Р№РґРµРЅ " << endl;
 }
-// удаление ребра
+// СѓРґР°Р»РµРЅРёРµ СЂРµР±СЂР°
 void Graph::delEdge(int v1, int v2)
 {
     matrix[v1][v2] = 0;
     matrix[v2][v1] = 0;
 }
 
-// проверка существования ребра
+// РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ СЂРµР±СЂР°
 bool Graph::edgeExists(int v1, int v2)
 {
     return matrix[v1][v2] > 0;
 }
-// проверка существования вершины
+// РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ РІРµСЂС€РёРЅС‹
 bool Graph::vertexExists(string v)
 {
     for (int i = 0; i < vertexCount; i++)
@@ -72,7 +72,7 @@ bool Graph::vertexExists(string v)
 
 void Graph::showGraph() {
     setlocale(LC_ALL, "");
-    cout << endl << vertexCount << " участников:" << endl;
+    cout << endl << vertexCount << " СѓС‡Р°СЃС‚РЅРёРєРѕРІ:" << endl;
      cout << "        ";
     for (int i = 0; i < vertexCount; i++) cout << names[i] << "     ";
     cout << endl;
@@ -86,7 +86,7 @@ void Graph::showGraph() {
 
 int Graph::showList() {
     setlocale(LC_ALL, "");
-    cout << endl << vertexCount << " участников:" << endl;
+    cout << endl << vertexCount << " СѓС‡Р°СЃС‚РЅРёРєРѕРІ:" << endl;
     for (int i = 0; i < vertexCount; i++) cout << i + 1 << " - " << names[i] << endl;
     cout << endl;
     return vertexCount;
@@ -95,31 +95,31 @@ int Graph::showList() {
 
 void Graph::findFriends(int stage)
 {
-    int weights[SIZE][SIZE]; // матрица путей
-    // инициализаци матрицы
+    int weights[SIZE][SIZE]; // РјР°С‚СЂРёС†Р° РїСѓС‚РµР№
+    // РёРЅРёС†РёР°Р»РёР·Р°С†Рё РјР°С‚СЂРёС†С‹
     for (int i = 0; i < SIZE; i++)
     {
         for (int j = 0; j < SIZE; j++)
         {
             if (i == j)
             {
-                weights[i][j] = 0; // путь до самой себя равен 0
+                weights[i][j] = 0; // РїСѓС‚СЊ РґРѕ СЃР°РјРѕР№ СЃРµР±СЏ СЂР°РІРµРЅ 0
             }
             else {
                 if (!edgeExists(i, j))
                 {
-                    weights[i][j] = VERYBIGINT; // если ребра нет
+                    weights[i][j] = VERYBIGINT; // РµСЃР»Рё СЂРµР±СЂР° РЅРµС‚
                 }
                 else {
-                    weights[i][j] = matrix[i][j]; // если ребро есть
+                    weights[i][j] = matrix[i][j]; // РµСЃР»Рё СЂРµР±СЂРѕ РµСЃС‚СЊ
                 }
             }
         }
     }
 
-    for (int k = 0; k < vertexCount; k++) // итерации по k
+    for (int k = 0; k < vertexCount; k++) // РёС‚РµСЂР°С†РёРё РїРѕ k
     {
-        int ck = k; // возьмем номер вершины
+        int ck = k; // РІРѕР·СЊРјРµРј РЅРѕРјРµСЂ РІРµСЂС€РёРЅС‹
         for (int i = 0; i < vertexCount; i++)
         {
             if (i == k)
@@ -131,14 +131,14 @@ void Graph::findFriends(int stage)
                     continue;
                 int cj = j;
                 if (weights[ci][ck] + weights[ck][cj] < weights[ci][cj]) {
-                    // пересчет мматрицы путей
+                    // РїРµСЂРµСЃС‡РµС‚ РјР°С‚СЂРёС†С‹ РїСѓС‚РµР№
                     weights[ci][cj] = weights[ci][ck] + weights[ck][cj];
                 }
             }
         }
     }
-    // вывод матрицы расстояний
-    std::cout << endl << "Кратчайшие пути между вершинами  (метод Флойда)" << endl;
+    // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹ СЂР°СЃСЃС‚РѕСЏРЅРёР№
+    std::cout << endl << "РљСЂР°С‚С‡Р°Р№С€РёРµ РїСѓС‚Рё РјРµР¶РґСѓ РІРµСЂС€РёРЅР°РјРё  (РјРµС‚РѕРґ Р¤Р»РѕР№РґР°)" << endl;
     cout << "        ";
     for (int i = 0; i < vertexCount; i++) cout << names[i] << "     ";
     cout << endl;
@@ -151,11 +151,11 @@ void Graph::findFriends(int stage)
         }
         std::cout << std::endl;
     }
-    // вывод пар с расстоянием знакомства <= stage
-    cout << endl << "Пары, знакомые не более, чем через " << stage;
-    if (stage == 1) cout << " рукопожатие " << endl;
-    if (stage > 1 && stage < 5) cout << " рукопожатия " << endl;
-    if (stage > 4 ) cout << " рукопожатий " << endl;
+    // РІС‹РІРѕРґ РїР°СЂ СЃ СЂР°СЃСЃС‚РѕСЏРЅРёРµРј Р·РЅР°РєРѕРјСЃС‚РІР° <= stage
+    cout << endl << "РџР°СЂС‹, Р·РЅР°РєРѕРјС‹Рµ РЅРµ Р±РѕР»РµРµ, С‡РµРј С‡РµСЂРµР· " << stage;
+    if (stage == 1) cout << " СЂСѓРєРѕРїРѕР¶Р°С‚РёРµ " << endl;
+    if (stage > 1 && stage < 5) cout << " СЂСѓРєРѕРїРѕР¶Р°С‚РёСЏ " << endl;
+    if (stage > 4 ) cout << " СЂСѓРєРѕРїРѕР¶Р°С‚РёР№ " << endl;
 
     for (int i = 0; i < vertexCount; i++) {
         for (int j = i + 1; j < vertexCount; j++)
