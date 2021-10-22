@@ -10,30 +10,30 @@ class Graph {
 public:
     Graph();
 
-    // добавление ребра
+    // // РґРѕР±Р°РІР»РµРЅРёРµ СЂРµР±СЂР°
     void addEdge(int v1, int v2, int weight);
 
-    // добавление вершины
+    // РґРѕР±Р°РІР»РµРЅРёРµ РІРµСЂС€РёРЅС‹
     void addName(string vName);
  
-    // удаление вершины
+    // СѓРґР°Р»РµРЅРёРµ РІРµСЂС€РёРЅС‹
     void delName(string vName);
-    // удаление ребра
+    // СѓРґР°Р»РµРЅРёРµ СЂРµР±СЂР°
     void delEdge(int v1, int v2);
-    // показать граф
+    // РїРѕРєР°Р·Р°С‚СЊ РіСЂР°С„
     void showGraph();
-    // показать список
+    // РїРѕРєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє
     int showList();
-    // поиск знакомств (stage - "stage рукопожатий")
+    // РїРѕРёСЃРє Р·РЅР°РєРѕРјСЃС‚РІ (stage - "stage СЂСѓРєРѕРїРѕР¶Р°С‚РёР№")
     void findFriends(int stage);
 
  private:
     bool edgeExists(int v1, int v2);
     bool vertexExists(string v);
 
-    int matrix[SIZE][SIZE]; // матрица смежности
+    int matrix[SIZE][SIZE]; // РјР°С‚СЂРёС†Р° СЃРјРµР¶РЅРѕСЃС‚Рё
 
-    string names[SIZE]; // хранилище имен 
-    int vertexCount; // количество добавленных вершин
+    string names[SIZE]; // С…СЂР°РЅРёР»РёС‰Рµ РёРјРµРЅ 
+    int vertexCount; // РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕР±Р°РІР»РµРЅРЅС‹С… РІРµСЂС€РёРЅ
 };
 #endif
